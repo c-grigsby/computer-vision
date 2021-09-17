@@ -3,7 +3,7 @@
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 32vmin;
   pointer-events: none;
 }
 
@@ -26,6 +26,17 @@
 
 .App-link {
   color: #61dafb;
+}
+
+form img,
+form button {
+  width: 165px;
+  height: 165px;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: #61dafb;
+  font-weight: bold;
+  font-size: 18px;
 }
 
 @keyframes App-logo-spin {
