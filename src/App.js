@@ -1,5 +1,5 @@
 // @packages
-import { Fragment, React } from 'react';
+import { React } from 'react';
 // @scripts
 import './App.css';
 import ImageUpload from './components/ImageUpload.js';
@@ -7,17 +7,18 @@ import logo from './logo.svg';
 
 function App() {
   return (
-    <Fragment className="App">
+    <div className="App">
       <div className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <h1> Azure Cognitive Services </h1>
         <p>
-          This application utilizes OCR technology from the Azure Read API to
-          evaluate the text content of an image
+          This application utilizes Machine Learning via Optical Character
+          Recognition [OCR] <br />
+          to process the text content from any image
         </p>
         <ImageUpload />
       </div>
-    </Fragment>
+    </div>
   );
 }
 
