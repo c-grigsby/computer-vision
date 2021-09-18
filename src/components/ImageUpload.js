@@ -1,12 +1,15 @@
 // @packages
 import Axios from 'axios';
+import { BeatLoader } from 'react-spinners';
 import { Fragment, React, useEffect, useRef, useState } from 'react';
 // @scripts
+import classes from './ImageUpload.module.css';
 import ImageAnalysis from './AzureCognitiveServices/ImageAnalysis';
 
 const ImageUpload = () => {
   const [fileUploaded, setFileUploaded] = useState();
   const [fileURL, setFileURL] = useState();
+  const [loading, setLoading] = useState(false);
   const [preview, setPreview] = useState();
   const fileInputRef = useRef();
 
@@ -41,16 +44,17 @@ const ImageUpload = () => {
     formData.append('file', imageFile);
     formData.append('upload_preset', process.env.REACT_APP_CLOUDINARY);
 
+    setLoading(true);
     await Axios.post(
       'https://api.cloudinary.com/v1_1/foxtrot-9/image/upload',
       formData
     ).then((response) => {
       console.log(response);
       if (response.status === 200) {
-        console.log(response.data.url);
         setFileURL(response.data.url);
       }
     });
+    setLoading(false);
   };
 
   const uploadRequest = (e) => {
@@ -77,6 +81,11 @@ const ImageUpload = () => {
         )}
       </form>
       {fileURL && <ImageAnalysis fileURL={fileURL} filePreview={preview} />}
+      {loading && (
+        <div className={classes.spinnerDiv}>
+          <BeatLoader color="white" loading={loading} size={23} />
+        </div>
+      )}
     </Fragment>
   );
 };
