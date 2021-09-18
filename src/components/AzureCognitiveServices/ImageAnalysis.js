@@ -1,7 +1,9 @@
 // @packages
-import { Fragment, React } from 'react';
+import { BeatLoader } from 'react-spinners';
+import { Fragment, React, useEffect, useState } from 'react';
 // @scripts
 import classes from './ImageAnalysis.module.css';
+import Card from '../UI/Card';
 // @declared
 const async = require('async');
 const ComputerVisionClient =
@@ -9,75 +11,102 @@ const ComputerVisionClient =
 const ApiKeyCredentials = require('@azure/ms-rest-js').ApiKeyCredentials;
 
 const ImageAnalysis = ({ fileURL, filePreview }) => {
-  console.log(fileURL);
-  console.log(filePreview);
+  const [loading, setLoading] = useState(true);
+  const [imageAnalysis, setImageAnalysis] = useState();
+  const [results, setResults] = useState(false);
 
-  // Authentication for Azure Cognitive Services
-  const key = process.env.REACT_APP_AZURE_KEY;
-  const endpoint = process.env.REACT_APP_AZURE_ENDPOINT;
-  const computerVisionClient = new ComputerVisionClient(
-    new ApiKeyCredentials({ inHeader: { 'Ocp-Apim-Subscription-Key': key } }),
-    endpoint
-  );
+  useEffect(() => {
+    // Authentication for Azure Cognitive Services
+    const key = process.env.REACT_APP_AZURE_KEY;
+    const endpoint = process.env.REACT_APP_AZURE_ENDPOINT;
+    const computerVisionClient = new ComputerVisionClient(
+      new ApiKeyCredentials({
+        inHeader: { 'Ocp-Apim-Subscription-Key': key },
+      }),
+      endpoint
+    );
+    let analysisResults = [];
 
-  function computerVision() {
-    async.series([
-      async function () {
-        const STATUS_SUCCEEDED = 'succeeded';
-        const STATUS_FAILED = 'failed';
+    function computerVision() {
+      async.series([
+        async function () {
+          const STATUS_SUCCEEDED = 'succeeded';
+          const STATUS_FAILED = 'failed';
+          const uploadedFileURL = fileURL;
 
-        const uploadedFileURL = fileURL;
-
-        // API call returns a ReadResponse, grab operation location (ID) from response
-        const operationLocationUrl = await computerVisionClient
-          .read(uploadedFileURL)
-          .then((response) => {
-            return response.operationLocation;
-          });
-
-        const operationIdUrl = operationLocationUrl.substring(
-          operationLocationUrl.lastIndexOf('/') + 1
-        );
-        // Wait for the read operation to finish, use operationId to get result
-        while (true) {
-          const readOpResult = await computerVisionClient
-            .getReadResult(operationIdUrl)
-            .then((result) => {
-              return result;
+          // API call returns a ReadResponse, grab operation location (ID) from response
+          const operationLocationUrl = await computerVisionClient
+            .read(uploadedFileURL)
+            .then((response) => {
+              return response.operationLocation;
             });
 
-          console.log('Read status: ' + readOpResult.status);
+          const operationIdUrl = operationLocationUrl.substring(
+            operationLocationUrl.lastIndexOf('/') + 1
+          );
+          // Wait for the read operation to finish, use operationId to get result
+          let waitingOnAPI = true;
+          while (waitingOnAPI) {
+            const readOpResult = await computerVisionClient
+              .getReadResult(operationIdUrl)
+              .then((result) => {
+                return result;
+              });
 
-          if (readOpResult.status === STATUS_FAILED) {
-            console.log('The Read File operation has failed.');
-            break;
-          }
-          if (readOpResult.status === STATUS_SUCCEEDED) {
-            console.log('The Read File operation was a success.');
-            console.log('Read File URL image result:');
+            console.log('Read status: ' + readOpResult.status);
 
-            // Print the text captured
-            for (const textRecResult of readOpResult.analyzeResult
-              .readResults) {
-              for (const line of textRecResult.lines) {
-                console.log(line.text);
-              }
+            if (readOpResult.status === STATUS_FAILED) {
+              setLoading(false);
+              analysisResults.push('The Read File operation has failed.');
+              setImageAnalysis(analysisResults);
+              waitingOnAPI = false;
+              setResults(true);
+              return;
             }
-            break;
+            if (readOpResult.status === STATUS_SUCCEEDED) {
+              analysisResults.push('The Read File operation was a success.');
+              analysisResults.push('Read File URL image result:');
+
+              // Print the text captured
+              for (const textRecResult of readOpResult.analyzeResult
+                .readResults) {
+                for (const line of textRecResult.lines) {
+                  analysisResults.push(line.text);
+                }
+              }
+              setLoading(false);
+              setImageAnalysis(analysisResults);
+              console.log(analysisResults);
+              waitingOnAPI = false;
+              setResults(true);
+              return;
+            }
+            await new Promise((r) => setTimeout(r, 1000));
           }
-          await new Promise((r) => setTimeout(r, 2000));
-        }
-      },
-    ]);
-  }
-  computerVision();
+        },
+      ]);
+    }
+    computerVision();
+  }, [fileURL, results]);
 
   return (
     <Fragment>
-      {filePreview ? (
-        <img className={classes.img} src={filePreview} alt="analysis" />
-      ) : (
-        ''
+      <img className={classes.img} src={filePreview} alt="analysis" />
+      <BeatLoader color="white" loading={loading} size={23} />
+      {results && (
+        <Card className={classes.Card}>
+          {imageAnalysis.map((word, index) => {
+            return index === 0 ? (
+              <p key={word} className={classes.textHeader}>
+                {word}
+              </p>
+            ) : (
+              <div key={word} className={classes.text}>
+                {word}
+              </div>
+            );
+          })}
+        </Card>
       )}
     </Fragment>
   );
