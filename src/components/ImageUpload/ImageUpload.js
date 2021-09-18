@@ -1,15 +1,20 @@
 // @packages
 import Axios from 'axios';
 import { BeatLoader } from 'react-spinners';
+import { useSelector, useDispatch } from 'react-redux';
 import { Fragment, React, useEffect, useRef, useState } from 'react';
 // @scripts
 import classes from './ImageUpload.module.css';
 import ImageAnalysis from '../../components/AzureCognitiveServices/ImageAnalysis';
+import { selectImage } from '../../store/index';
 
-const ImageUpload = () => {
+const ImageUpload = (props) => {
+  const selectingImage = useSelector((state) => state.selectingImage);
+  const dispatch = useDispatch();
+
   const [fileUploaded, setFileUploaded] = useState();
-  const [fileURL, setFileURL] = useState();
-  const [loading, setLoading] = useState();
+  const [fileURL, setFileURL] = useState(null);
+  const [loading, setLoading] = useState(false);
   const [preview, setPreview] = useState();
   const fileInputRef = useRef();
 
@@ -29,6 +34,8 @@ const ImageUpload = () => {
     const file = e.target.files[0];
     if (file && file.type.substr(0, 5) === 'image') {
       setFileUploaded(file);
+      if (!selectingImage) dispatch(selectImage());
+      console.log('Redux-Value', selectingImage);
     }
   };
 
@@ -50,11 +57,13 @@ const ImageUpload = () => {
       if (response.status === 200) {
         const imageURL = response.data.url;
         setFileURL(imageURL);
+        console.log('AxiosImageFile', imageURL);
       } else {
         console.log(response);
       }
     });
     setLoading(false);
+    dispatch(selectImage());
   };
 
   const uploadRequest = (e) => {
@@ -80,7 +89,11 @@ const ImageUpload = () => {
           <button onClick={imageAnalysisHandler}>Image Analysis</button>
         )}
       </form>
-      {fileURL && <ImageAnalysis filePreview={preview} imageURL={fileURL} />}
+      {fileURL && !selectingImage ? (
+        <ImageAnalysis filePreview={preview} imageURL={fileURL} />
+      ) : (
+        ''
+      )}
       <div className={classes.spinnerDiv}>
         <BeatLoader color="white" loading={loading} size={23} />
       </div>

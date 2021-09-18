@@ -1,5 +1,6 @@
 // @packages
 import { BeatLoader } from 'react-spinners';
+import { useSelector } from 'react-redux';
 import { Fragment, React, useEffect, useState } from 'react';
 // @scripts
 import classes from './ImageAnalysis.module.css';
@@ -10,7 +11,9 @@ const ComputerVisionClient =
   require('@azure/cognitiveservices-computervision').ComputerVisionClient;
 const ApiKeyCredentials = require('@azure/ms-rest-js').ApiKeyCredentials;
 
-const ImageAnalysis = ({ fileURL, filePreview }) => {
+const ImageAnalysis = ({ imageURL, filePreview }) => {
+  const selectingImage = useSelector((state) => state.selectingImage);
+
   const [loading, setLoading] = useState(true);
   const [imageAnalysis, setImageAnalysis] = useState();
   const [results, setResults] = useState(false);
@@ -32,7 +35,7 @@ const ImageAnalysis = ({ fileURL, filePreview }) => {
         async function () {
           const STATUS_SUCCEEDED = 'succeeded';
           const STATUS_FAILED = 'failed';
-          const uploadedFileURL = fileURL;
+          const uploadedFileURL = imageURL;
 
           // API call returns a ReadResponse, grab operation location (ID) from response
           const operationLocationUrl = await computerVisionClient
@@ -40,10 +43,10 @@ const ImageAnalysis = ({ fileURL, filePreview }) => {
             .then((response) => {
               return response.operationLocation;
             });
-
           const operationIdUrl = operationLocationUrl.substring(
             operationLocationUrl.lastIndexOf('/') + 1
           );
+
           // Wait for the read operation to finish, use operationId to get result
           let waitingOnAPI = true;
           while (waitingOnAPI) {
@@ -52,7 +55,6 @@ const ImageAnalysis = ({ fileURL, filePreview }) => {
               .then((result) => {
                 return result;
               });
-
             console.log('Read status: ' + readOpResult.status);
 
             if (readOpResult.status === STATUS_FAILED) {
@@ -87,13 +89,13 @@ const ImageAnalysis = ({ fileURL, filePreview }) => {
       ]);
     }
     computerVision();
-  }, [fileURL, results]);
+  }, [imageURL, results]);
 
   return (
     <Fragment>
       <img className={classes.img} src={filePreview} alt="analysis" />
       <BeatLoader color="white" loading={loading} size={23} />
-      {results && (
+      {results && !selectingImage ? (
         <Card className={classes.Card}>
           {imageAnalysis.map((word, index) => {
             return index === 0 ? (
@@ -107,6 +109,8 @@ const ImageAnalysis = ({ fileURL, filePreview }) => {
             );
           })}
         </Card>
+      ) : (
+        ''
       )}
     </Fragment>
   );
