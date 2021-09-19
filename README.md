@@ -4,11 +4,13 @@
 
 # Azure Cognitive Services
 
-[![npm version](https://badge.fury.io/js/react.svg)](https://badge.fury.io/js/react)
+[![npm version](https://badge.fury.io/js/react.svg)](https://badge.fury.io/js/react) [![Netlify Status](https://api.netlify.com/api/v1/badges/be64e88a-89c5-45b3-94fd-5724f7741a0e/deploy-status)](https://app.netlify.com/sites/awesome-cray-160ef7/deploys)
 
 </div>
 
-This application utilizes Machine Learning via Optical Character Recognition [OCR]() to analyze the text content found within any image. It accomplishes this task via the the Computer Vision API, an AI service that analyzes content in images and video <br/><br/>
+This application utilizes Machine Learning via Optical Character Recognition [OCR]() to analyze the text content found within any image. It accomplishes this task via the the Computer Vision API, an AI service that analyzes content in images and video. [Live Demo of Application](https://azure-cognitive-services.netlify.app/)
+
+<br/><br/>
 
 <div align="center" markdown="1">
 
@@ -28,11 +30,11 @@ This application utilizes Machine Learning via Optical Character Recognition [OC
 
 ---
 
-##### This applications utilizes a **.env file** to host global variables. For utilization configure the following account information:
+##### This applications utilizes a **.env file** to host environment variables. For utilization configure the following account information:
 
-- ###### AZURE_KEY
-- ###### AZURE_ENDPOINT
-- ###### CLOUDINARY
+- ###### REACT_APP_AZURE_KEY
+- ###### REACT_APP_AZURE_ENDPOINT
+- ###### REACT_APP_CLOUDINARY
 
 ---
 
