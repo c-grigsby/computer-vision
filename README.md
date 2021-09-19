@@ -8,7 +8,7 @@
 
 </div>
 
-This application utilizes Machine Learning via Optical Character Recognition [OCR](https://nanonets.com/blog/deep-learning-ocr/) to analyze the text content found within any image. It accomplishes this task via the the Computer Vision API, an AI service that analyzes content in images and video. [Live Demo](https://azure-cognitive-services.netlify.app/)
+This application utilizes Machine Learning via Optical Character Recognition [OCR](https://nanonets.com/blog/deep-learning-ocr/) to analyze the text content found within any image. It accomplishes this task via the the Computer Vision API, an AI service that analyzes content in images and video. [Live Demo of Application](https://azure-cognitive-services.netlify.app/)
 
 <div align="center" markdown="1">
 
@@ -41,13 +41,13 @@ This application utilizes Machine Learning via Optical Character Recognition [OC
 
 ## Scripts
 
-In the project directory, to install dependencies you can run:
+In the project directory, to install dependencies:
 
 ```
 npm install
 ```
 
-Then, to run in development mode
+Then, to run in development mode:
 
 ```
 npm start
@@ -55,7 +55,7 @@ npm start
 
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-To build the app for production to the `build` folder.
+To build the app for production to the `build` folder:
 
 ```
  npm run build
