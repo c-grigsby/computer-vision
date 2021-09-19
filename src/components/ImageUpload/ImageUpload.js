@@ -8,7 +8,7 @@ import classes from './ImageUpload.module.css';
 import ImageAnalysis from '../../components/AzureCognitiveServices/ImageAnalysis';
 import { selectImage } from '../../store/index';
 
-const ImageUpload = (props) => {
+const ImageUpload = () => {
   const selectingImage = useSelector((state) => state.selectingImage);
   const dispatch = useDispatch();
 
@@ -35,7 +35,6 @@ const ImageUpload = (props) => {
     if (file && file.type.substr(0, 5) === 'image') {
       setFileUploaded(file);
       if (!selectingImage) dispatch(selectImage());
-      console.log('Redux-Value', selectingImage);
     }
   };
 
@@ -57,7 +56,6 @@ const ImageUpload = (props) => {
       if (response.status === 200) {
         const imageURL = response.data.url;
         setFileURL(imageURL);
-        console.log('AxiosImageFile', imageURL);
       } else {
         console.log(response);
       }

@@ -70,6 +70,7 @@ const ImageAnalysis = ({ imageURL, filePreview }) => {
               analysisResults.push('Read File URL image result:');
 
               // Print the text captured
+              console.log(readOpResult.analyzeResult);
               for (const textRecResult of readOpResult.analyzeResult
                 .readResults) {
                 for (const line of textRecResult.lines) {
@@ -78,7 +79,6 @@ const ImageAnalysis = ({ imageURL, filePreview }) => {
               }
               setLoading(false);
               setImageAnalysis(analysisResults);
-              console.log(analysisResults);
               waitingOnAPI = false;
               setResults(true);
               return;

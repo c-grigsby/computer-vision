@@ -3,8 +3,8 @@ import { Provider } from 'react-redux';
 import { React } from 'react';
 // @scripts
 import './styles/App.css';
+import WelcomeMsg from './components/Welcome/WelcomeMsg';
 import ImageUpload from './components/ImageUpload/ImageUpload';
-import logo from './logo.svg';
 import store from './store/store';
 
 function App() {
@@ -12,13 +12,7 @@ function App() {
     <Provider store={store}>
       <div className="App">
         <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1> Azure Cognitive Services </h1>
-          <p>
-            This application utilizes Machine Learning via Optical Character
-            Recognition (OCR) <br />
-            to process the text content from any image
-          </p>
+          <WelcomeMsg />
           <ImageUpload />
         </div>
       </div>
