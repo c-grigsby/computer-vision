@@ -78,6 +78,10 @@ const ImageAnalysis = ({ imageURL, filePreview }) => {
                   analysisResults.push(line.text);
                 }
               }
+              if (analysisResults.length < 3) {
+                analysisResults.push('No Text Discovered in Analysis');
+              }
+              console.log(analysisResults);
               setLoading(false);
               setImageAnalysis(analysisResults);
               waitingOnAPI = false;

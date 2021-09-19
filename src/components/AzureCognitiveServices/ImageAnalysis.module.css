@@ -7,7 +7,7 @@
   border: 1.5px solid white;
   margin-top: 40px;
   margin-bottom: 40px;
-  width: 550px;
+  width: 565px;
   height: auto;
   border-radius: 9px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -35,21 +35,21 @@
 }
 @media (max-width: 450px) {
   .img {
-    width: 390px;
+    width: 380px;
   }
 }
 @media (max-width: 400px) {
   .img {
-    width: 380px;
+    width: 370px;
   }
 }
 @media (max-width: 380px) {
   .img {
-    width: 360px;
+    width: 350px;
   }
 }
 @media (max-width: 365px) {
   .img {
-    width: 345px;
+    width: 335px;
   }
 }
