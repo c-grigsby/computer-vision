@@ -1,4 +1,5 @@
 // @packages
+import { animateScroll as scroll } from 'react-scroll';
 import Axios from 'axios';
 import { BeatLoader } from 'react-spinners';
 import { useSelector, useDispatch } from 'react-redux';
@@ -59,6 +60,9 @@ const ImageUpload = () => {
       } else {
         console.log(response);
       }
+    });
+    scroll.scrollToBottom({
+      smooth: true,
     });
     setLoading(false);
     dispatch(selectImage());

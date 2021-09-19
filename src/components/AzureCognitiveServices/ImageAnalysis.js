@@ -1,4 +1,5 @@
 // @packages
+import { animateScroll as scroll } from 'react-scroll';
 import { BeatLoader } from 'react-spinners';
 import { useSelector } from 'react-redux';
 import { Fragment, React, useEffect, useState } from 'react';
@@ -81,6 +82,10 @@ const ImageAnalysis = ({ imageURL, filePreview }) => {
               setImageAnalysis(analysisResults);
               waitingOnAPI = false;
               setResults(true);
+              scroll.scrollToBottom({
+                smooth: true,
+                offset: 100,
+              });
               return;
             }
             await new Promise((r) => setTimeout(r, 1000));
@@ -89,7 +94,7 @@ const ImageAnalysis = ({ imageURL, filePreview }) => {
       ]);
     }
     computerVision();
-  }, [imageURL, results]);
+  }, [imageURL]);
 
   return (
     <Fragment>

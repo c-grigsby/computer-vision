@@ -48,3 +48,11 @@ form button {
     transform: rotate(360deg);
   }
 }
+
+@media (max-width: 600px) {
+  form img,
+  form button {
+    width: 110px;
+    height: 110px;
+  }
+}

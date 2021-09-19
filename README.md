@@ -8,11 +8,11 @@
 
 </div>
 
-This application utilizes Machine Learning via Optical Character Recognition [OCR]() to analyze the text content found within any image. It accomplishes this task via the the Computer Vision API, an AI service that analyzes content in images and video. [Live Demo of Application](https://azure-cognitive-services.netlify.app/)
-
-<br/><br/>
+This application utilizes Machine Learning via Optical Character Recognition [OCR](https://nanonets.com/blog/deep-learning-ocr/) to analyze the text content found within any image. It accomplishes this task via the the Computer Vision API, an AI service that analyzes content in images and video. [Live Demo](https://azure-cognitive-services.netlify.app/)
 
 <div align="center" markdown="1">
+
+<br/>
 
 <img src="https://nanonets.com/blog/content/images/2019/08/ocr-in-the-wild.gif" alt="OCR" width="200">
 
@@ -26,6 +26,7 @@ This application utilizes Machine Learning via Optical Character Recognition [OC
 - Utilizes the [Read API](https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/overview-ocr#read-api) from Azure Cognitive Services
 - Images uploaded to [Cloudinary](https://cloudinary.com/) to provide a URL for processing
 - Displays the text extracted from the image to the user
+- [Redux](https://redux.js.org/) to assit with state management
 - [Read 3.2 REST API](https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/overview-ocr#read-api) Documentation
 
 ---
