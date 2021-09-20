@@ -23,11 +23,13 @@ This application utilizes Machine Learning via Optical Character Recognition [OC
 ## Project Specifications
 
 - Developed with [React](https://github.com/facebook/create-react-app)
+- UI for image upload and analysis results
 - Utilizes the [Read API](https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/overview-ocr#read-api) from Azure Cognitive Services
 - Images uploaded to [Cloudinary](https://cloudinary.com/) to provide a URL for processing
 - Displays the text extracted from the image to the user
 - [Redux](https://redux.js.org/) to assit with state management
 - [Read 3.2 REST API](https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005) Documentation
+- Continous deployment via [Netlify](https://www.netlify.com/)
 
 ---
 
