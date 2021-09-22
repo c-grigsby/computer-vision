@@ -33,7 +33,13 @@ This application utilizes Machine Learning via Optical Character Recognition [OC
 
 ---
 
-##### This applications utilizes a **.env file** to host environment variables. For utilization configure the following account information:
+## Application URL
+
+- https://azure-cognitive-services.netlify.app/
+
+---
+
+#### This applications utilizes a **.env file** to host environment variables. For utilization configure the following account information:
 
 - ###### REACT_APP_AZURE_KEY
 - ###### REACT_APP_AZURE_ENDPOINT
