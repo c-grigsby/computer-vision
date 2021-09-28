@@ -7,7 +7,7 @@ const WelcomeMsg = () => {
   return (
     <Fragment>
       <img src={logo} className="App-logo" alt="logo" />
-      <h1> Azure Cognitive Services </h1>
+      <h1>Azure Computer Vision</h1>
       <p>
         This application utilizes Machine Learning via Optical Character
         Recognition (OCR) <br />

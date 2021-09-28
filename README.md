@@ -2,13 +2,13 @@
 
 <img src="public/logo192.png" alt="React" width="150"/>
 
-# Azure Cognitive Services
+# Azure Computer Vision
 
 [![npm version](https://badge.fury.io/js/react.svg)](https://badge.fury.io/js/react) [![Netlify Status](https://api.netlify.com/api/v1/badges/be64e88a-89c5-45b3-94fd-5724f7741a0e/deploy-status)](https://app.netlify.com/sites/awesome-cray-160ef7/deploys)
 
 </div>
 
-This application utilizes Machine Learning via Optical Character Recognition [OCR](https://nanonets.com/blog/deep-learning-ocr/) to analyze the text content found within any image. It accomplishes this task via the the Computer Vision API, an AI service that analyzes content in images and video. [Live Demo of Application](https://azure-cognitive-services.netlify.app/)
+This application utilizes Machine Learning via Optical Character Recognition [OCR](https://nanonets.com/blog/deep-learning-ocr/) to analyze the text content found within any image. It accomplishes this task via the the Azure Computer Vision API, an AI service that analyzes content in images and video. [Live Demo of Application](https://azure-cognitive-services.netlify.app/)
 
 <div align="center" markdown="1">
 
