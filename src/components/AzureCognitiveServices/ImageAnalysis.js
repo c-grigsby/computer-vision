@@ -70,7 +70,7 @@ const ImageAnalysis = ({ imageURL, filePreview }) => {
               analysisResults.push('The Read File operation was a success.');
               analysisResults.push('Read File URL image result:');
 
-              // Print the text captured
+              // Store & Display the text captured
               console.log(readOpResult.analyzeResult);
               for (const textRecResult of readOpResult.analyzeResult
                 .readResults) {
@@ -81,7 +81,6 @@ const ImageAnalysis = ({ imageURL, filePreview }) => {
               if (analysisResults.length < 3) {
                 analysisResults.push('No Text Discovered in Analysis');
               }
-              console.log(analysisResults);
               setLoading(false);
               setImageAnalysis(analysisResults);
               waitingOnAPI = false;
@@ -102,13 +101,13 @@ const ImageAnalysis = ({ imageURL, filePreview }) => {
 
   return (
     <Fragment>
-      <img className={classes.img} src={filePreview} alt="analysis" />
-      <BeatLoader color="white" loading={loading} size={23} />
+      <img className={classes.img} src={filePreview} alt='analysis' />
+      <BeatLoader color='white' loading={loading} size={23} />
       {results && !selectingImage ? (
         <Card className={classes.Card}>
           {imageAnalysis.map((word, index) => {
             return index === 0 ? (
-              <p key={word} className={classes.textHeader}>
+              <p key={`${word}_${index}`} className={classes.textHeader}>
                 {word}
               </p>
             ) : (
