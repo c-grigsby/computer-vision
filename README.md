@@ -4,11 +4,19 @@
 
 # Azure Computer Vision
 
+[![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://img.shields.io/badge/license-MIT-blue.svg")
 [![npm version](https://badge.fury.io/js/react.svg)](https://badge.fury.io/js/react) [![Netlify Status](https://api.netlify.com/api/v1/badges/be64e88a-89c5-45b3-94fd-5724f7741a0e/deploy-status)](https://app.netlify.com/sites/awesome-cray-160ef7/deploys)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/c-grigsby/computer-vision?style=plastic)
+![GitHub repo size](https://img.shields.io/github/repo-size/c-grigsby/computer-vision?style=plastic)
+![PR's Welcome!](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
 
 </div>
 
-This application utilizes Machine Learning via Optical Character Recognition [OCR](https://nanonets.com/blog/deep-learning-ocr/) to analyze the text content found within any image. It accomplishes this task via the the Azure Computer Vision API, an AI service that analyzes content in images and video. [Live Demo of Application](https://azure-cognitive-services.netlify.app/)
+This application utilizes machine learning via Optical Character Recognition ([OCR](https://nanonets.com/blog/deep-learning-ocr/)) to analyze the text content found within any image. It accomplishes this task via the the Azure Computer Vision API, an AI service that analyzes content in images and video.
+
+## Demo
+
+[Live Demo of Application](https://azure-cognitive-services.netlify.app/)
 
 <div align="center" markdown="1">
 
@@ -41,9 +49,9 @@ This application utilizes Machine Learning via Optical Character Recognition [OC
 
 #### This applications utilizes a **.env file** to host environment variables. For utilization configure the following account information:
 
-- ###### REACT_APP_AZURE_KEY
-- ###### REACT_APP_AZURE_ENDPOINT
-- ###### REACT_APP_CLOUDINARY
+- #### REACT_APP_AZURE_KEY
+- #### REACT_APP_AZURE_ENDPOINT
+- #### REACT_APP_CLOUDINARY
 
 ---
 
