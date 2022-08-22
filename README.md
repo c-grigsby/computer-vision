@@ -2,7 +2,7 @@
 
 <img src="public/logo192.png" alt="React" width="150"/>
 
-# Azure Computer Vision
+# Computer Vision
 
 [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://img.shields.io/badge/license-MIT-blue.svg")
 [![npm version](https://badge.fury.io/js/react.svg)](https://badge.fury.io/js/react) [![Netlify Status](https://api.netlify.com/api/v1/badges/be64e88a-89c5-45b3-94fd-5724f7741a0e/deploy-status)](https://app.netlify.com/sites/awesome-cray-160ef7/deploys)

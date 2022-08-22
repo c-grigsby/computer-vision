@@ -103,7 +103,7 @@ const ImageAnalysis = ({ imageURL, filePreview }) => {
       <img className={classes.img} src={filePreview} alt='analysis' />
       <BeatLoader color='white' loading={loading} size={23} />
       {results && !selectingImage ? (
-        <Card className={classes.Card}>
+        <Card className={classes.card}>
           {imageAnalysis.map((word, index) => {
             return index === 0 ? (
               <p key={`${word}_${index}`} className={classes.textHeader}>
