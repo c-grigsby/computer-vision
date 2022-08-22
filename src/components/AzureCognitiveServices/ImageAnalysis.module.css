@@ -15,12 +15,12 @@
 
 .textHeader {
   font-weight: bold;
-  color: black;
+  color: white;
 }
 .text {
   margin-top: 10px;
   margin-bottom: 10px;
-  color: black;
+  color: #FCFBFA;
 }
 
 @media (max-width: 600px) {

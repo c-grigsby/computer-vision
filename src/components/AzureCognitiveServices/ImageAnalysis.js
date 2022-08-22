@@ -60,15 +60,14 @@ const ImageAnalysis = ({ imageURL, filePreview }) => {
 
             if (readOpResult.status === STATUS_FAILED) {
               setLoading(false);
-              analysisResults.push('The Read File operation has failed.');
+              analysisResults.push('The Read File operation has failed');
               setImageAnalysis(analysisResults);
               waitingOnAPI = false;
               setResults(true);
               return;
             }
             if (readOpResult.status === STATUS_SUCCEEDED) {
-              analysisResults.push('The Read File operation was a success.');
-              analysisResults.push('Read File URL image result:');
+              analysisResults.push('The Read File operation was a success');
 
               // Store & Display the text captured
               console.log(readOpResult.analyzeResult);
@@ -79,7 +78,7 @@ const ImageAnalysis = ({ imageURL, filePreview }) => {
                 }
               }
               if (analysisResults.length < 3) {
-                analysisResults.push('No Text Discovered in Analysis');
+                analysisResults.push('No Text Discovered in Image Analysis');
               }
               setLoading(false);
               setImageAnalysis(analysisResults);
