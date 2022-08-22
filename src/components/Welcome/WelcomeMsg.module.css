@@ -1,8 +1,10 @@
 .welcome_header {
-  color:  #F9F7F6;
+  color: #f9f7f6;
+  -webkit-text-stroke: 0.5px #565656;
+  text-shadow: 0px 1.5px 4px black;
 }
 
 .welcome_text {
-  color:  #FCFBFA;
+  color: #fcfbfa;
   font-weight: 550;
 }

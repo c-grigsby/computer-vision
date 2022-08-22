@@ -11,7 +11,7 @@ const WelcomeMsg = () => {
       <h1 className={classes.welcome_header}>Computer Vision</h1>
       <p className={classes.welcome_text}>
         This application utilizes machine learning via Optical Character
-        Recognition (OCR) <br />
+        Recognition (OCR) <br/>
         to analyze the text content found within any image
       </p>
     </Fragment>
