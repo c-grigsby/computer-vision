@@ -16,7 +16,7 @@ This application utilizes machine learning via Optical Character Recognition ([O
 
 ## Demo
 
-[Live Demo of Application](https://azure-cognitive-services.netlify.app/)
+[Live Demo of Application](https://computer-vision-services.netlify.app/)
 
 <div align="center" markdown="1">
 
@@ -47,15 +47,7 @@ This application utilizes machine learning via Optical Character Recognition ([O
 
 ---
 
-#### This applications utilizes a **.env file** to host environment variables. For utilization configure the following account information:
-
-- #### REACT_APP_AZURE_KEY
-- #### REACT_APP_AZURE_ENDPOINT
-- #### REACT_APP_CLOUDINARY
-
----
-
-## Scripts
+## Getting Started
 
 In the project directory, to install dependencies:
 
@@ -76,3 +68,12 @@ To build the app for production to the `build` folder:
 ```
  npm run build
 ```
+---
+
+## Environment Variables
+#### This applications utilizes a **.env file** to host environment variables. For local utilization configure the following account information:
+
+- REACT_APP_AZURE_KEY="YourAzureKey"
+- REACT_APP_AZURE_ENDPOINT="YourAzureEndpoint"
+- REACT_APP_CLOUDINARY_KEY="YourCloudinaryKey"
+- REACT_APP_CLOUDINARY_ENDPOINT="YourCloudinaryEndpoint"
