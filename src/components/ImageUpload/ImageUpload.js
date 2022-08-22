@@ -48,10 +48,10 @@ const ImageUpload = () => {
     setLoading(true);
     const formData = new FormData();
     formData.append('file', fileUploaded);
-    formData.append('upload_preset', process.env.REACT_APP_CLOUDINARY);
+    formData.append('upload_preset', process.env.REACT_APP_CLOUDINARY_KEY);
 
     await Axios.post(
-      'https://api.cloudinary.com/v1_1/foxtrot-9/image/upload',
+      `${process.env.REACT_APP_CLOUDINARY_ENDPOINT}`,
       formData
     ).then((response) => {
       if (response.status === 200) {
