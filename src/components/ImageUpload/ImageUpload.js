@@ -75,7 +75,7 @@ const ImageUpload = () => {
 
   return (
     <Fragment>
-      <form>
+      <form className={classes.form}>
         <button onClick={uploadRequest}>Upload Image</button>
         <input
           accept="image/*"
