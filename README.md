@@ -12,7 +12,7 @@
 
 </div>
 
-This application utilizes machine learning via Optical Character Recognition ([OCR](https://nanonets.com/blog/deep-learning-ocr/)) to analyze the text content found within any image. It accomplishes this task via the the Azure Computer Vision API, an AI service that analyzes content in images and video.
+This client-side application utilizes machine learning via Optical Character Recognition ([OCR](https://nanonets.com/blog/deep-learning-ocr/)) to analyze the text content found within any image. It accomplishes this task via the the Azure Computer Vision API, an AI service that analyzes content in images and video.
 
 ## Demo
 
@@ -43,7 +43,7 @@ This application utilizes machine learning via Optical Character Recognition ([O
 
 ## Application URL
 
-- https://azure-cognitive-services.netlify.app/
+- https://computer-vision-services.netlify.app
 
 ---
 
